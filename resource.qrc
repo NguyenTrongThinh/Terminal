@@ -1,0 +1,63 @@
+<RCC>
+    <qresource prefix="/resource">
+        <file>Resource/About50.png</file>
+        <file>Resource/Applications32.png</file>
+        <file>Resource/camera32.png</file>
+        <file>Resource/close32.png</file>
+        <file>Resource/Close.png</file>
+        <file>Resource/COM.png</file>
+        <file>Resource/COM32.png</file>
+        <file>Resource/DEC.png</file>
+        <file>Resource/exit16.png</file>
+        <file>Resource/find32.png</file>
+        <file>Resource/goto16.png</file>
+        <file>Resource/Help50.png</file>
+        <file>Resource/HEX.png</file>
+        <file>Resource/open32.png</file>
+        <file>Resource/Question32.png</file>
+        <file>Resource/Receive.png</file>
+        <file>Resource/save32.png</file>
+        <file>Resource/Send.png</file>
+        <file>Resource/stylechange32.png</file>
+        <file>Resource/TEXT.png</file>
+        <file>Resource/setting.png</file>
+    </qresource>
+    <qresource prefix="/Sound">
+        <file>Windows Classic and XP Sounds/classic chimes.wav</file>
+        <file>Windows Classic and XP Sounds/classic chord.wav</file>
+        <file>Windows Classic and XP Sounds/classic ding.wav</file>
+        <file>Windows Classic and XP Sounds/classic notify.wav</file>
+        <file>Windows Classic and XP Sounds/classic recycle.wav</file>
+        <file>Windows Classic and XP Sounds/classic ringin.wav</file>
+        <file>Windows Classic and XP Sounds/classic ringout.wav</file>
+        <file>Windows Classic and XP Sounds/classic start.wav</file>
+        <file>Windows Classic and XP Sounds/classic tada.wav</file>
+        <file>Windows Classic and XP Sounds/Windows XP Balloon.wav</file>
+        <file>Windows Classic and XP Sounds/Windows XP Battery Critical.wav</file>
+        <file>Windows Classic and XP Sounds/Windows XP Battery Low.wav</file>
+        <file>Windows Classic and XP Sounds/Windows XP Critical Stop.wav</file>
+        <file>Windows Classic and XP Sounds/Windows XP Default.wav</file>
+        <file>Windows Classic and XP Sounds/Windows XP Ding.wav</file>
+        <file>Windows Classic and XP Sounds/Windows XP Error.wav</file>
+        <file>Windows Classic and XP Sounds/Windows XP Exclamation.wav</file>
+        <file>Windows Classic and XP Sounds/Windows XP Feed Discovered.wav</file>
+        <file>Windows Classic and XP Sounds/Windows XP Hardware Fail.wav</file>
+        <file>Windows Classic and XP Sounds/Windows XP Hardware Insert.wav</file>
+        <file>Windows Classic and XP Sounds/Windows XP Hardware Remove.wav</file>
+        <file>Windows Classic and XP Sounds/Windows XP Information Bar.wav</file>
+        <file>Windows Classic and XP Sounds/Windows XP Logoff Sound.wav</file>
+        <file>Windows Classic and XP Sounds/Windows XP Logon Sound.wav</file>
+        <file>Windows Classic and XP Sounds/Windows XP Menu Command.wav</file>
+        <file>Windows Classic and XP Sounds/Windows XP Minimize.wav</file>
+        <file>Windows Classic and XP Sounds/Windows XP Notify.wav</file>
+        <file>Windows Classic and XP Sounds/windows xp pop-up blocked.wav</file>
+        <file>Windows Classic and XP Sounds/Windows XP Print complete.wav</file>
+        <file>Windows Classic and XP Sounds/Windows XP Recycle.wav</file>
+        <file>Windows Classic and XP Sounds/Windows XP Restore.wav</file>
+        <file>Windows Classic and XP Sounds/Windows XP Ringin.wav</file>
+        <file>Windows Classic and XP Sounds/Windows XP Ringout.wav</file>
+        <file>Windows Classic and XP Sounds/Windows XP Shutdown.wav</file>
+        <file>Windows Classic and XP Sounds/Windows XP Start.wav</file>
+        <file>Windows Classic and XP Sounds/Windows XP Startup.wav</file>
+    </qresource>
+</RCC>
