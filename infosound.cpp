@@ -11,3 +11,7 @@ void InfoSound::PlaySoundError()
 {
     QSound::play(":/Sound/Windows Classic and XP Sounds/Windows XP Critical Stop.wav");
 }
+void InfoSound::PlayInputError()
+{
+    QSound::play(":/Sound/Windows Classic and XP Sounds/Windows XP Battery Critical.wav");
+}

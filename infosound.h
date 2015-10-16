@@ -13,6 +13,7 @@ public:
 public:
     void PlaySoundConnect();
     void PlaySoundError();
+    void PlayInputError();
 
 signals:
 

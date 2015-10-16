@@ -11,6 +11,9 @@
 #include <QByteArray>
 #include <QScrollBar>
 #include <infosound.h>
+#include <validinput.h>
+#include <subclasslnsend.h>
+#include <QKeyEvent>
 
 namespace Ui {
 class Terminal;
@@ -35,6 +38,8 @@ private:
     QString ViewData;
     qint32 SendHistoryIndex;
     InfoSound *infosound;
+    ValidInput *checkvalid;
+    SubClassLnSend *cLnSend;
 private:
     void MainMenu_Init();
     void StatusBar_Init();
@@ -48,10 +53,8 @@ private slots:
     void MenuSetting();
     void SerialPort_DataReceive();
     void on_buttonSend_clicked();
-
-
     void on_lnSend_textEdited(const QString &arg1);
-
+    void on_ArrowKeyPressed(int KeyCode);
 
 private:
     Ui::Terminal *ui;

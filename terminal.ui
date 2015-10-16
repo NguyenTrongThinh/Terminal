@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1000</width>
-    <height>600</height>
+    <height>500</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -65,7 +65,7 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <widget class="QLineEdit" name="lnSend"/>
+         <widget class="SubClassLnSend" name="lnSend"/>
         </item>
         <item>
          <widget class="QPushButton" name="buttonSend">
@@ -149,6 +149,13 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>SubClassLnSend</class>
+   <extends>QLineEdit</extends>
+   <header location="global">subclasslnsend.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="resource.qrc"/>
  </resources>

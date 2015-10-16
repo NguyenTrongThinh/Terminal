@@ -14,8 +14,11 @@ Terminal::Terminal(QWidget *parent) :
     Port = new QSerialPort();
     infosound = new InfoSound();
     settingForm = new Setting();
+    checkvalid = new ValidInput();
+    cLnSend = new SubClassLnSend();
     connect(settingForm, SIGNAL(accepted()), this, SLOT(Open_Port()));
     connect(Port, SIGNAL(readyRead()), this, SLOT(SerialPort_DataReceive()));
+    connect(ui->lnSend, SIGNAL(KeyPressed_ArrowKey(int)), this, SLOT(on_ArrowKeyPressed(int)));
 }
 
 Terminal::~Terminal()
@@ -123,18 +126,44 @@ void Terminal::MenuSetting()
 
 void Terminal::on_buttonSend_clicked()
 {
-   static QByteArray DataToSend;
+   QByteArray SDataToSend;
+   QStringList NDataToSend;
+   int Byte;
+   QString SByte;
+   bool ConvertSuccess = false;
     if (Port->isOpen())
     {
         if (ui->lnSend->text() != "")
         {
-            DataToSend=ui->lnSend->text().toLatin1();
-            SendHistory << DataToSend;
             if (ui->radioString->isChecked())
             {
-                Port->write(DataToSend);
-                ui->lnSend->clear();
+                SDataToSend=ui->lnSend->text().toLatin1();  
             }
+            else if (ui->radioHex->isChecked())
+            {
+                NDataToSend = ui->lnSend->text().split(" ");
+                for (int i = 0; i<NDataToSend.length(); i++)
+                {
+                    SByte = NDataToSend.at(i);
+                    Byte = SByte.toInt(&ConvertSuccess, 16);
+                    if (ConvertSuccess)
+                        SDataToSend.append(Byte);
+                }
+            }
+            else if (ui->radioDec->isChecked())
+            {
+                NDataToSend = ui->lnSend->text().split(" ");
+                for (int i = 0; i<NDataToSend.length(); i++)
+                {
+                    SByte = NDataToSend.at(i);
+                    Byte = SByte.toInt(&ConvertSuccess, 10);
+                    if (ConvertSuccess)
+                        SDataToSend.append(Byte);
+                }
+            }
+            SendHistory << SDataToSend;
+            Port->write(SDataToSend);
+            ui->lnSend->clear();
         }
     }
     else
@@ -157,8 +186,70 @@ void Terminal::SerialPort_DataReceive()
 
 void Terminal::on_lnSend_textEdited(const QString &arg1)
 {
+    QString FormatString;
+    int CheckChar;
     if (ui->radioHex->isChecked())
     {
-
+          if (!checkvalid->IsHex(arg1.right(1)))
+          {
+              ui->lnSend->setText(arg1.left(arg1.length() - 1));
+          }
+          else
+          {
+                  if (arg1.length() - arg1.lastIndexOf(" ") == 4)
+                  {
+                      FormatString = arg1;
+                      FormatString.insert(FormatString.length() - 1, " ");
+                      ui->lnSend->setText(FormatString);
+                  }
+          }
     }
+    else if (ui->radioDec->isChecked())
+    {
+        if (!checkvalid->IsDec(arg1.right(1)))
+        {
+            ui->lnSend->setText(arg1.left(arg1.length() - 1));
+        }
+        else
+        {
+            if (arg1.length() - arg1.lastIndexOf(" ") == 4)
+            {
+                FormatString = arg1;
+                CheckChar = FormatString.right(3).toInt();
+                if (CheckChar > 255)
+                {
+                    msg.setText("Error");
+                    msg.setInformativeText("Decimal number must be less then 255 (" + QString::number(CheckChar) + " )");
+                    msg.setStandardButtons(QMessageBox::Ok);
+                    msg.setIcon(QMessageBox::Warning);
+                    msg.exec();
+                    ui->lnSend->setSelection(arg1.length() - 3, 3);
+                }
+            }
+            else if (arg1.length() - arg1.lastIndexOf(" ") == 5)
+            {
+                    FormatString = arg1;
+                    FormatString.insert(FormatString.length() - 1, " ");
+                    ui->lnSend->setText(FormatString);
+            }
+        }
+    }
+}
+void Terminal::on_ArrowKeyPressed(int KeyCode)
+{
+   static int HistoryIndex = SendHistory.length();
+   if (SendHistory.length() >= 0)
+   {
+        if (KeyCode == Qt::Key_Up)
+        {
+            if (HistoryIndex>0)
+                HistoryIndex--;
+        }
+        else if (KeyCode == Qt::Key_Down)
+        {
+            if (HistoryIndex<SendHistory.length() - 1)
+                HistoryIndex++;
+        }
+            ui->lnSend->setText(SendHistory.at(HistoryIndex));
+   }
 }
