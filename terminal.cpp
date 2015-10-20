@@ -16,6 +16,7 @@ Terminal::Terminal(QWidget *parent) :
     settingForm = new Setting();
     checkvalid = new ValidInput();
     cLnSend = new SubClassLnSend();
+    SendHistory = new History();
     connect(settingForm, SIGNAL(accepted()), this, SLOT(Open_Port()));
     connect(Port, SIGNAL(readyRead()), this, SLOT(SerialPort_DataReceive()));
     connect(ui->lnSend, SIGNAL(KeyPressed_ArrowKey(int)), this, SLOT(on_ArrowKeyPressed(int)));
@@ -161,7 +162,8 @@ void Terminal::on_buttonSend_clicked()
                         SDataToSend.append(Byte);
                 }
             }
-            SendHistory << SDataToSend;
+            SendHistory->HistoryAddNew(ui->lnSend->text());
+            SendHistory->HistoryResetIndex();
             Port->write(SDataToSend);
             ui->lnSend->clear();
         }
@@ -237,19 +239,11 @@ void Terminal::on_lnSend_textEdited(const QString &arg1)
 }
 void Terminal::on_ArrowKeyPressed(int KeyCode)
 {
-   static int HistoryIndex = SendHistory.length();
-   if (SendHistory.length() >= 0)
-   {
-        if (KeyCode == Qt::Key_Up)
-        {
-            if (HistoryIndex>0)
-                HistoryIndex--;
-        }
-        else if (KeyCode == Qt::Key_Down)
-        {
-            if (HistoryIndex<SendHistory.length() - 1)
-                HistoryIndex++;
-        }
-            ui->lnSend->setText(SendHistory.at(HistoryIndex));
-   }
+    QString History;
+    if (KeyCode == Qt::Key_Up)
+        SendHistory->HistoryDecreaseIndex();
+    else if (KeyCode == Qt::Key_Down)
+        SendHistory->HistoryIncreaseIndex();
+    History = SendHistory->HistoryGetHistory();
+    ui->lnSend->setText(History);
 }

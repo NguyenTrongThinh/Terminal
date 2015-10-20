@@ -19,13 +19,15 @@ SOURCES += main.cpp\
     setting.cpp \
     infosound.cpp \
     validinput.cpp \
-    subclasslnsend.cpp
+    subclasslnsend.cpp \
+    history.cpp
 
 HEADERS  += terminal.h \
     setting.h \
     infosound.h \
     validinput.h \
-    subclasslnsend.h
+    subclasslnsend.h \
+    history.h
 
 FORMS    += terminal.ui \
     setting.ui

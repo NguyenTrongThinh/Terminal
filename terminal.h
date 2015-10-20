@@ -14,6 +14,7 @@
 #include <validinput.h>
 #include <subclasslnsend.h>
 #include <QKeyEvent>
+#include <history.h>
 
 namespace Ui {
 class Terminal;
@@ -31,15 +32,15 @@ private:
     QSerialPort *Port;
     QMessageBox msg;
     QList<QString> SerialError;
-    QList<QByteArray> SendHistory;
     QList<QByteArray> ReceiveHistory;
     QLabel *statusPortname;
     QLabel *statusBaurate;
     QString ViewData;
-    qint32 SendHistoryIndex;
     InfoSound *infosound;
     ValidInput *checkvalid;
     SubClassLnSend *cLnSend;
+    History *SendHistory;
+
 private:
     void MainMenu_Init();
     void StatusBar_Init();
