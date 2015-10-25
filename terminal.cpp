@@ -32,6 +32,7 @@ void Terminal::MainMenu_Init()
     connect(ui->actionOpen, SIGNAL(triggered(bool)), this, SLOT(MenuOpen_Port()));
     connect(ui->actionClose, SIGNAL(triggered(bool)), this, SLOT(MenuClose_Port()));
     connect(ui->actionSetting, SIGNAL(triggered(bool)), this, SLOT(MenuSetting()));
+    connect(ui->actionExit, SIGNAL(triggered(bool)), this, SLOT(MenuExit()));
 
 }
 void Terminal::Toolbar_Init()
@@ -39,6 +40,9 @@ void Terminal::Toolbar_Init()
     ui->mainToolBar->addAction(ui->actionOpen);
     ui->mainToolBar->addAction(ui->actionClose);
     ui->mainToolBar->addAction(ui->actionSetting);
+    ui->mainToolBar->addAction(ui->actionData_View);
+    ui->mainToolBar->addAction(ui->actionText_View);
+    ui->mainToolBar->addAction(ui->actionAbout);
 }
 void Terminal::StatusBar_Init()
 {
@@ -56,6 +60,7 @@ void Terminal::StatusBar_Init()
 }
 void Terminal::MenuOpen_Port()
 {
+    settingForm->Refesh_Port();
     settingForm->show();
     settingForm->activateWindow();
     settingForm->raise();
@@ -246,4 +251,11 @@ void Terminal::on_ArrowKeyPressed(int KeyCode)
         SendHistory->HistoryIncreaseIndex();
     History = SendHistory->HistoryGetHistory();
     ui->lnSend->setText(History);
+}
+void Terminal::MenuExit()
+{
+    if (Port->isOpen())
+        Port->close();
+    system("/home/exe/Qtenv.sh /home/exe/ShutDownUI");
+    QCoreApplication::exit();
 }

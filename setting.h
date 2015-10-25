@@ -5,6 +5,7 @@
 #include <QList>
 #include <QString>
 #include <QSerialPort>
+#include <QSerialPortInfo>
 
 #define MAX_PORT_LIST 20
 namespace Ui {
@@ -26,6 +27,7 @@ private:
     QList<QSerialPort::Parity> parity;
     QList<QSerialPort::StopBits> stopbits;
 
+
 public:
     QString GetPortName();
     QSerialPort::BaudRate GetBaurate();
@@ -41,6 +43,8 @@ private:
     void AddFlowControl();
     void AddParity();
     void AddStopBits();
+public:
+    void Refesh_Port();
 private:
     Ui::Setting *ui;
 };

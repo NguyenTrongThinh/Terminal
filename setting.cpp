@@ -20,8 +20,12 @@ Setting::~Setting()
 }
 void Setting::AddPortName()
 {
-    for (int i = 0; i<MAX_PORT_LIST; i++)
-        portname << "ttyUSB" + QString::number(i);
+    ui->comboPortName->clear();
+    portname.clear();
+   foreach (const QSerialPortInfo &info, QSerialPortInfo::availablePorts())
+    {
+        portname << info.portName();
+    }
     ui->comboPortName->addItems(portname);
 }
 void Setting::AddBaurate()
@@ -92,4 +96,8 @@ QSerialPort::Parity Setting::GetParity()
 QSerialPort::StopBits Setting::GetStopBits()
 {
     return stopbits[ui->comboStopBits->currentIndex()];
+}
+void Setting::Refesh_Port()
+{
+    AddPortName();
 }

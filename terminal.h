@@ -56,6 +56,7 @@ private slots:
     void on_buttonSend_clicked();
     void on_lnSend_textEdited(const QString &arg1);
     void on_ArrowKeyPressed(int KeyCode);
+    void MenuExit();
 
 private:
     Ui::Terminal *ui;

@@ -104,7 +104,8 @@
     <addaction name="actionOpen_Log"/>
     <addaction name="actionSave_Log"/>
     <addaction name="actionSave_Log_As"/>
-    <addaction name="actionClose_2"/>
+    <addaction name="actionCloseLog"/>
+    <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
     <property name="title">
@@ -190,63 +191,150 @@
    </property>
   </action>
   <action name="actionOpen_Log">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/resource/Resource/open32.png</normaloff>:/resource/Resource/open32.png</iconset>
+   </property>
    <property name="text">
     <string>Open Log</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
   </action>
   <action name="actionSave_Log">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/resource/Resource/save32.png</normaloff>:/resource/Resource/save32.png</iconset>
+   </property>
    <property name="text">
     <string>Save Log</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
   </action>
   <action name="actionSave_Log_As">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/resource/Resource/save32.png</normaloff>:/resource/Resource/save32.png</iconset>
+   </property>
    <property name="text">
     <string>Save Log As</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
   </action>
-  <action name="actionClose_2">
+  <action name="actionCloseLog">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/resource/Resource/close32.png</normaloff>:/resource/Resource/close32.png</iconset>
+   </property>
    <property name="text">
     <string>Close</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
+   </property>
   </action>
   <action name="actionClear">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/resource/Resource/exit16.png</normaloff>:/resource/Resource/exit16.png</iconset>
+   </property>
    <property name="text">
     <string>Clear</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
+   </property>
   </action>
   <action name="actionCopy">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/resource/Resource/copy.png</normaloff>:/resource/Resource/copy.png</iconset>
+   </property>
    <property name="text">
     <string>Copy</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
   </action>
   <action name="actionPaste">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/resource/Resource/Paste.ico</normaloff>:/resource/Resource/Paste.ico</iconset>
+   </property>
    <property name="text">
     <string>Paste</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+V</string>
+   </property>
   </action>
   <action name="actionText_View">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/resource/Resource/TEXT.png</normaloff>:/resource/Resource/TEXT.png</iconset>
+   </property>
    <property name="text">
     <string>Text View</string>
    </property>
   </action>
   <action name="actionData_View">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/resource/Resource/HEX.png</normaloff>:/resource/Resource/HEX.png</iconset>
+   </property>
    <property name="text">
     <string>Data View</string>
    </property>
   </action>
   <action name="actionFont">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/resource/Resource/stylechange32.png</normaloff>:/resource/Resource/stylechange32.png</iconset>
+   </property>
    <property name="text">
     <string>Font</string>
    </property>
   </action>
   <action name="actionBack_ground">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/resource/Resource/Applications32.png</normaloff>:/resource/Resource/Applications32.png</iconset>
+   </property>
    <property name="text">
     <string>Back ground</string>
    </property>
   </action>
   <action name="actionAbout">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/resource/Resource/About50.png</normaloff>:/resource/Resource/About50.png</iconset>
+   </property>
    <property name="text">
     <string>About</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/resource/Resource/exit.png</normaloff>:/resource/Resource/exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+X</string>
    </property>
   </action>
  </widget>

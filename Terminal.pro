@@ -13,7 +13,6 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = Terminal
 TEMPLATE = app
 
-
 SOURCES += main.cpp\
         terminal.cpp \
     setting.cpp \

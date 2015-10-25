@@ -21,6 +21,9 @@
         <file>Resource/stylechange32.png</file>
         <file>Resource/TEXT.png</file>
         <file>Resource/setting.png</file>
+        <file>Resource/copy.png</file>
+        <file>Resource/Paste.ico</file>
+        <file>Resource/exit.png</file>
     </qresource>
     <qresource prefix="/Sound">
         <file>Windows Classic and XP Sounds/classic chimes.wav</file>
